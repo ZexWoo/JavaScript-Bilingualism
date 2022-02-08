@@ -1,4 +1,4 @@
-# JavaScript Bilingualism——纯 JavaScript 实现网页的双语切换
+# JavaScript Bilingualism
 
 请先下载示例代码，确认运行没有问题再运用到你的项目中。
 
@@ -39,27 +39,16 @@
 ## JavaScript 改动
 
 ```
-var isZhWebTitle = /示例网页/;
-var isEnWebTitle = /Example Website/;
-```
-
-这两行定义了双语的网页标题，也就是显示在浏览器标签上的文本，请按需改动。
-
-```
 function htmlTitleSwitcher(){
     if(ls.lang == "zh"){
-        if(isEnWebTitle.test(document.title)){
-            document.title = document.title.replace(isEnWebTitle, "示例网页");
-        };
+        document.title = "示例网页";
     }else if(ls.lang == "en"){
-        if(isZhWebTitle.test(document.title)){
-            document.title = document.title.replace(isZhWebTitle, "Example Website");
-        };
+        document.title = "Example Website";
     };
 }
 ```
 
-这部分也同上，所有你需要修改的只有 `示例网页` 和 `Example Website` 这两部分。
+这部分定义了双语的网页标题，也就是显示在浏览器标签上的文本，请按需改动。所有你需要修改的只有 `示例网页` 和 `Example Website` 这两部分。
 
 之后就是主要文本：
 
@@ -93,6 +82,8 @@ replace("This is an example line of text. 2", "这是一行用于演示的文本
 变更一下实现思路，其实可以实现多语切换。
 
 如果是做成语言两两互切（比如中-英，英-日，日-中），代码会很冗余很傻（几何级增长），所以可以在切换时，令语言初始化（回归到中），然后基于中文变换为其他语言，这样只需要做单向 replace 方法就能达成目标，只是会需要更多的刷新，但这点不便应该无所谓。
+
+确实实现了。双语切换请用 Example1 文件组；多语切换请用 Example2 文件组，原理相同，修改也都方便。
 
 ## 后记
 

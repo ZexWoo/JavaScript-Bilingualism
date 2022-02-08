@@ -15,10 +15,6 @@ if(!ls.lang){
     }
 }
 
-//用于在不同语言网页标题间切换的正则
-var isZhWebTitle = /示例网页/;
-var isEnWebTitle = /Example Website/;
-
 //页面 HTML 整体加载完毕后再执行下列代码
 window.onload = function(){
     //语言切换按钮
@@ -49,13 +45,9 @@ window.onload = function(){
     //网页标题双语切换函数
     function htmlTitleSwitcher(){
         if(ls.lang == "zh"){
-            if(isEnWebTitle.test(document.title)){
-                document.title = document.title.replace(isEnWebTitle, "示例网页");
-            };
+            document.title = "示例网页";
         }else if(ls.lang == "en"){
-            if(isZhWebTitle.test(document.title)){
-                document.title = document.title.replace(isZhWebTitle, "Example Website");
-            };
+            document.title = "Example Website";
         };
     }
 
