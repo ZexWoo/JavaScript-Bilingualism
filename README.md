@@ -46,17 +46,17 @@ var isEnWebTitle = /Example Website/;
 这两行定义了双语的网页标题，也就是显示在浏览器标签上的文本，请按需改动。
 
 ```
-    function htmlTitleSwitcher(){
-        if(ls.lang == "zh"){
-            if(isEnWebTitle.test(document.title)){
-                document.title = document.title.replace(isEnWebTitle, "示例网页");
-            };
-        }else if(ls.lang == "en"){
-            if(isZhWebTitle.test(document.title)){
-                document.title = document.title.replace(isZhWebTitle, "Example Website");
-            };
+function htmlTitleSwitcher(){
+    if(ls.lang == "zh"){
+        if(isEnWebTitle.test(document.title)){
+            document.title = document.title.replace(isEnWebTitle, "示例网页");
         };
-    }
+    }else if(ls.lang == "en"){
+        if(isZhWebTitle.test(document.title)){
+            document.title = document.title.replace(isZhWebTitle, "Example Website");
+        };
+    };
+}
 ```
 
 这部分也同上，所有你需要修改的只有 `示例网页` 和 `Example Website` 这两部分。
@@ -92,7 +92,7 @@ replace("This is an example line of text. 2", "这是一行用于演示的文本
 
 变更一下实现思路，其实可以实现多语切换。
 
-如果是做成语言互切，代码会很冗余很傻，所以可以做成语言初始化，然后基于初始化变换为其他语言，这样只需要做单向 replace 方法就能达成目标，只是会需要更多的刷新，但这点不便应该无所谓。
+如果是做成语言两两互切（比如中-英，英-日，日-中），代码会很冗余很傻（几何级增长），所以可以在切换时，令语言初始化（回归到中），然后基于中文变换为其他语言，这样只需要做单向 replace 方法就能达成目标，只是会需要更多的刷新，但这点不便应该无所谓。
 
 ## 后记
 
