@@ -87,4 +87,4 @@ replace("癸", "J");
 
 ## 后记
 
-关于本项目开发的故事，请见我的博文 [纯 JavaScript 双语化小记](https://zexwoo.blog/pure_js_bilingualism/)。
+关于本项目开发的故事，请见我的博文 [纯 JavaScript 双语化小记](https://zexwoo.blog/pure_js_bilingualism-zh/)。
